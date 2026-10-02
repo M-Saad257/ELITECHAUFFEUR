@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useAuth } from "@/context/AuthContext";
 import {
   LayoutDashboard,
   Calendar,
@@ -14,10 +13,6 @@ import {
   Sliders,
   BarChart3,
   Settings,
-  PlusCircle,
-  Clock,
-  DollarSign,
-  User,
   ArrowLeft,
   X,
   Crown
@@ -25,51 +20,19 @@ import {
 
 export default function DashboardSidebar({ isOpen, onClose }) {
   const pathname = usePathname();
-  const { role } = useAuth();
 
-  const getAdminNav = () => [
+  const navItems = [
     { label: "Overview", href: "/admin", icon: LayoutDashboard },
-    { label: "Bookings", href: "/admin/bookings", icon: Calendar },
-    { label: "Chauffeurs", href: "/admin/drivers", icon: UserCheck },
-    { label: "Customers", href: "/admin/customers", icon: Users },
-    { label: "Fleet Fleet", href: "/admin/fleet", icon: Car },
-    { label: "Payments", href: "/admin/payments", icon: CreditCard },
-    { label: "Reviews", href: "/admin/reviews", icon: Star },
-    { label: "Services", href: "/admin/services", icon: Sliders },
-    { label: "Reports & Analytics", href: "/admin/reports", icon: BarChart3 },
-    { label: "Settings", href: "/admin/settings", icon: Settings },
+    { label: "Live Bookings", href: "/admin/bookings", icon: Calendar },
+    { label: "Chauffeur Drivers", href: "/admin/drivers", icon: UserCheck },
+    { label: "VIP Customers", href: "/admin/customers", icon: Users },
+    { label: "Fleet Vehicles", href: "/admin/fleet", icon: Car },
+    { label: "Payments & Accounts", href: "/admin/payments", icon: CreditCard },
+    { label: "Customer Reviews", href: "/admin/reviews", icon: Star },
+    { label: "Service Tariffs", href: "/admin/services", icon: Sliders },
+    { label: "Analytics & Reports", href: "/admin/reports", icon: BarChart3 },
+    { label: "System Settings", href: "/admin/settings", icon: Settings },
   ];
-
-  const getDriverNav = () => [
-    { label: "Overview", href: "/driver", icon: LayoutDashboard },
-    { label: "My Trips", href: "/driver/bookings", icon: Calendar },
-    { label: "Schedule", href: "/driver/schedule", icon: Clock },
-    { label: "Earnings", href: "/driver/earnings", icon: DollarSign },
-    { label: "Profile", href: "/driver/profile", icon: User },
-  ];
-
-  const getCustomerNav = () => [
-    { label: "Overview", href: "/customer", icon: LayoutDashboard },
-    { label: "My Bookings", href: "/customer/bookings", icon: Calendar },
-    { label: "Book a Chauffeur", href: "/customer/book", icon: PlusCircle },
-    { label: "Payments & Proof", href: "/customer/payments", icon: CreditCard },
-    { label: "Profile", href: "/customer/profile", icon: User },
-  ];
-
-  const navItems =
-    role === "admin"
-      ? getAdminNav()
-      : role === "driver"
-      ? getDriverNav()
-      : getCustomerNav();
-
-  const getRoleTag = () => {
-    if (role === "admin") return { label: "ADMINISTRATION", color: "text-[#C9A45C] border-[#C9A45C]/40 bg-[#C9A45C]/10" };
-    if (role === "driver") return { label: "CHAUFFEUR DRIVER", color: "text-emerald-400 border-emerald-500/40 bg-emerald-500/10" };
-    return { label: "VIP CLIENT", color: "text-sky-400 border-sky-500/40 bg-sky-500/10" };
-  };
-
-  const roleTag = getRoleTag();
 
   return (
     <>
@@ -99,7 +62,7 @@ export default function DashboardSidebar({ isOpen, onClose }) {
                   ELITE CHAUFFEUR
                 </span>
                 <span className="text-[9px] uppercase tracking-[0.2em] text-[#C9A45C] font-semibold block">
-                  Executive System
+                  Admin Console
                 </span>
               </div>
             </Link>
@@ -114,10 +77,8 @@ export default function DashboardSidebar({ isOpen, onClose }) {
 
           {/* Active Role Badge */}
           <div className="px-5 py-3 border-b border-white/5">
-            <span
-              className={`inline-block px-2.5 py-1 rounded-full text-[10px] font-mono font-bold border ${roleTag.color}`}
-            >
-              {roleTag.label} CONSOLE
+            <span className="inline-block px-2.5 py-1 rounded-full text-[10px] font-mono font-bold border text-[#C9A45C] border-[#C9A45C]/40 bg-[#C9A45C]/10">
+              DISPATCH & ADMIN CONTROL
             </span>
           </div>
 
@@ -131,7 +92,7 @@ export default function DashboardSidebar({ isOpen, onClose }) {
                   key={item.href}
                   href={item.href}
                   onClick={onClose}
-                  className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-medium transition-all ${
+                  className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
                     isActive
                       ? "bg-[#C9A45C] text-[#0B0D0C] font-bold shadow-[0_0_15px_rgba(201,164,92,0.3)]"
                       : "text-[#D8D3C8] hover:bg-white/5 hover:text-white"

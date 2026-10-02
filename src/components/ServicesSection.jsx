@@ -70,7 +70,7 @@ export default function ServicesSection({ onSelectService }) {
   const currentService = services.find((s) => s.id === activeId) || services[0];
 
   return (
-    <section id="services" className="min-h-[100vh] flex items-center justify-center py-12 bg-[#141817] relative border-t border-[#C9A45C]/20 overflow-hidden">
+    <section id="services" className="min-h-[100vh] flex items-center justify-center py-12 bg-[#FAF9F5] relative border-t border-slate-200 overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Header */}
         <motion.div
@@ -80,14 +80,14 @@ export default function ServicesSection({ onSelectService }) {
           transition={{ duration: 0.6 }}
           className="text-center max-w-lg mx-auto mb-6 space-y-1.5"
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full border border-[#C9A45C]/30 bg-[#0B0D0C]">
-            <Sparkles className="w-3 h-3 text-[#C9A45C]" />
-            <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#C9A45C]">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#C9A45C]/40 bg-white shadow-sm">
+            <Sparkles className="w-3 h-3 text-[#B8860B]" />
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#B8860B]">
               EXECUTIVE SERVICES
             </span>
           </div>
 
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#F5F1E8]">
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#0F172A]">
             Tailored To Your Journey
           </h2>
         </motion.div>
@@ -103,11 +103,11 @@ export default function ServicesSection({ onSelectService }) {
                 onClick={() => setActiveId(service.id)}
                 className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                   isActive
-                    ? "bg-[#C9A45C] text-[#0B0D0C] shadow-md"
-                    : "bg-[#0B0D0C] text-[#D8D3C8] hover:text-[#F5F1E8] border border-white/10"
+                    ? "bg-[#0F172A] text-white shadow-md border border-[#0F172A]"
+                    : "bg-white text-[#475569] hover:text-[#0F172A] border border-slate-300 shadow-sm"
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#0B0D0C]" : "text-[#C9A45C]"}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#C9A45C]" : "text-[#B8860B]"}`} />
                 <span>{service.title}</span>
               </button>
             );
@@ -120,42 +120,42 @@ export default function ServicesSection({ onSelectService }) {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
-          className="bg-[#0B0D0C] rounded-xl border border-[#C9A45C]/30 overflow-hidden shadow-xl"
+          className="bg-white rounded-xl border border-[#C9A45C]/35 overflow-hidden shadow-xl"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
             {/* Image Container */}
-            <div className="lg:col-span-5 relative h-44 sm:h-52 lg:h-64 w-full bg-[#0B0D0C]">
+            <div className="lg:col-span-5 relative h-44 sm:h-52 lg:h-64 w-full bg-[#0F172A]">
               <Image
                 src={currentService.image}
                 alt={currentService.title}
                 fill
                 className="object-cover rounded-xl p-1"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D0C] via-transparent to-transparent opacity-70" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/60 via-transparent to-transparent opacity-60" />
             </div>
 
             {/* Compact Content */}
             <div className="lg:col-span-7 p-4 sm:p-5 space-y-3">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[#C9A45C] block mb-0.5">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#B8860B] block mb-0.5">
                   {currentService.rate}
                 </span>
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#F5F1E8]">
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#0F172A]">
                   {currentService.title}
                 </h3>
-                <p className="text-xs font-semibold text-[#D8D3C8]">
+                <p className="text-xs font-semibold text-[#475569]">
                   {currentService.subtitle}
                 </p>
               </div>
 
-              <p className="text-xs text-[#D8D3C8] leading-relaxed font-normal">
+              <p className="text-xs text-[#475569] leading-relaxed font-normal">
                 {currentService.description}
               </p>
 
               <div className="space-y-1.5 pt-0.5">
                 {currentService.highlights.map((h, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs text-[#F5F1E8] font-medium">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#C9A45C] shrink-0" />
+                  <div key={i} className="flex items-center gap-2 text-xs text-[#1E293B] font-medium">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#B8860B] shrink-0" />
                     <span>{h}</span>
                   </div>
                 ))}

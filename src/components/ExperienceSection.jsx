@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles, ArrowRight, Wifi, VolumeX, Coffee, ShieldCheck } from "lucide-react";
+import { Sparkles, ArrowRight, Wifi, VolumeX, Coffee } from "lucide-react";
 import Image from "next/image";
 
 export default function ExperienceSection({ onExperienceClick }) {
@@ -12,34 +12,33 @@ export default function ExperienceSection({ onExperienceClick }) {
   ];
 
   return (
-    <section className="relative min-h-[100vh] flex items-center justify-center py-12 sm:py-16 overflow-hidden border-y border-[#C9A45C]/20 bg-[#0B0D0C]">
-      {/* Background Cinematic Image */}
+    <section className="relative min-h-[100vh] flex items-center justify-center py-12 sm:py-16 overflow-hidden border-y border-slate-200 bg-[#FAF9F5]">
+      {/* Background Photography with Soft Light Tint */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/lifestyle.jpg"
           alt="Maybach Luxury Chauffeur Interior London Tower Bridge"
           fill
-          className="object-cover object-center brightness-[7] scale-105"
+          className="object-cover object-center opacity-15 scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D0C] via-[#0B0D0C]/85 to-[#0B0D0C]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D0C] via-transparent to-[#0B0D0C]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF9F5] via-[#FAF9F5]/90 to-[#FAF9F5]" />
       </div>
 
       {/* Foreground Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#C9A45C]/40 bg-[#141817]/90 backdrop-blur-md shadow-xl">
-          <Sparkles className="w-3.5 h-3.5 text-[#C9A45C]" />
-          <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase text-[#C9A45C]">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#C9A45C]/40 bg-white shadow-sm">
+          <Sparkles className="w-3.5 h-3.5 text-[#B8860B]" />
+          <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase text-[#B8860B]">
             UNRIVALLED CABIN LUXURY
           </span>
         </div>
 
-        <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#F5F1E8] leading-tight">
+        <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#0F172A] leading-tight">
           First-Class Comfort. <br />
-          <span className="text-[#C9A45C] italic">Every Single Mile.</span>
+          <span className="text-[#B8860B] italic">Every Single Mile.</span>
         </h2>
 
-        <p className="text-xs sm:text-sm text-[#D8D3C8] font-normal leading-relaxed max-w-xl mx-auto">
+        <p className="text-xs sm:text-sm text-[#475569] font-normal leading-relaxed max-w-xl mx-auto">
           From airport arrivals to high-stakes C-suite roadshows, every journey is handled with absolute precision, discretion, and quiet elegance.
         </p>
 
@@ -50,13 +49,13 @@ export default function ExperienceSection({ onExperienceClick }) {
             return (
               <div
                 key={idx}
-                className="bg-[#141817]/90 backdrop-blur-md p-4 rounded-xl border border-[#C9A45C]/30 shadow-xl space-y-2 hover:border-[#C9A45C]/60 transition-all"
+                className="bg-white p-4 rounded-xl border border-[#C9A45C]/30 shadow-md space-y-2 hover:border-[#C9A45C] transition-all"
               >
-                <div className="w-8 h-8 rounded-lg bg-[#0B0D0C] border border-[#C9A45C]/40 flex items-center justify-center text-[#C9A45C]">
+                <div className="w-8 h-8 rounded-lg bg-[#FAF9F5] border border-[#C9A45C]/40 flex items-center justify-center text-[#B8860B]">
                   <Icon className="w-4 h-4" />
                 </div>
-                <h4 className="text-xs font-bold text-[#F5F1E8]">{item.title}</h4>
-                <p className="text-[11px] text-[#D8D3C8]/80 leading-relaxed font-normal">{item.desc}</p>
+                <h4 className="text-xs font-bold text-[#0F172A]">{item.title}</h4>
+                <p className="text-[11px] text-[#475569] leading-relaxed font-normal">{item.desc}</p>
               </div>
             );
           })}

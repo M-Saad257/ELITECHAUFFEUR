@@ -12,22 +12,6 @@ export const demoAccounts = {
     role: "admin",
     avatar: "/images/lifestyle.jpg",
   },
-  driver: {
-    id: "drv-1",
-    name: "James Sterling",
-    email: "driver@elitechauffeur.co.uk",
-    role: "driver",
-    avatar: "/images/lifestyle.jpg",
-    vehicle: "Mercedes-Maybach S680",
-  },
-  customer: {
-    id: "cust-1",
-    name: "Lord Alexander Wright",
-    email: "customer@example.com",
-    role: "customer",
-    avatar: "/images/lifestyle.jpg",
-    company: "Wright Capital Holdings",
-  },
 };
 
 export function AuthProvider({ children }) {
@@ -42,30 +26,36 @@ export function AuthProvider({ children }) {
       try {
         setUser(JSON.parse(savedUser));
       } catch (e) {
-        setUser(demoAccounts.admin);
+        setUser(null);
       }
     } else {
-      // Default initial role for demo preview
-      setUser(demoAccounts.admin);
+      setUser(null); // Unauthenticated by default until user logs in
     }
     setIsLoading(false);
   }, []);
 
-  const loginAsRole = (role) => {
-    const targetUser = demoAccounts[role] || demoAccounts.admin;
-    setUser(targetUser);
-    localStorage.setItem("elite_auth_user", JSON.stringify(targetUser));
-    
-    if (role === "admin") router.push("/admin");
-    else if (role === "driver") router.push("/driver");
-    else if (role === "customer") router.push("/customer");
+  const loginWithCredentials = (email, password) => {
+    if (!email || !password) {
+      return { success: false, error: "Please enter both email and password." };
+    }
+
+    // Accept admin@elitechauffeur.co.uk or any valid admin email + password
+    if (email.trim().toLowerCase() === "admin@elitechauffeur.co.uk" || password.trim().length >= 4) {
+      const adminUser = {
+        ...demoAccounts.admin,
+        email: email.trim().toLowerCase(),
+      };
+      setUser(adminUser);
+      localStorage.setItem("elite_auth_user", JSON.stringify(adminUser));
+      router.push("/admin");
+      return { success: true };
+    }
+
+    return { success: false, error: "Invalid email or password. Use admin@elitechauffeur.co.uk and admin123" };
   };
 
-  const loginWithCredentials = (email, password) => {
-    let role = "customer";
-    if (email.toLowerCase().includes("admin")) role = "admin";
-    else if (email.toLowerCase().includes("driver")) role = "driver";
-    loginAsRole(role);
+  const loginAsRole = (role = "admin") => {
+    return loginWithCredentials("admin@elitechauffeur.co.uk", "admin123");
   };
 
   const logout = () => {

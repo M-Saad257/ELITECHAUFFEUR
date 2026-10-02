@@ -40,11 +40,11 @@ export default function Hero({ onOpenQuote, onExploreFleet }) {
       {/* Background Photography - Highly Visible Luxury Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero.jpg"
+          src="/images/hero2.jpeg"
           alt="Elite UK Chauffeur Service London"
           fill
           priority
-          className="object-cover object-center brightness-[0.78] sm:brightness-[0.85]"
+          className="object-cover object-center brightness-[0.7] sm:brightness-[0.4]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D0C]/60 via-[#0B0D0C]/40 to-[#0B0D0C]/90 sm:bg-gradient-to-r sm:from-[#0B0D0C]/85 sm:via-[#0B0D0C]/60 sm:to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D0C]/80 via-transparent to-black/60" />

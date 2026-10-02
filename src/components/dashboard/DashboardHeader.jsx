@@ -8,17 +8,13 @@ import {
   Bell,
   Search,
   LogOut,
-  User,
   Shield,
-  Car,
-  CheckCircle2,
   X,
   RotateCcw
 } from "lucide-react";
-import Image from "next/image";
 
 export default function DashboardHeader({ onMenuClick, onSearchChange, searchValue = "" }) {
-  const { user, role, loginAsRole, logout } = useAuth();
+  const { user, logout } = useAuth();
   const { notifications, markNotificationsRead, resetDemoData } = useDemoData();
   const [showNotifications, setShowNotifications] = useState(false);
 
@@ -49,43 +45,8 @@ export default function DashboardHeader({ onMenuClick, onSearchChange, searchVal
         </div>
       </div>
 
-      {/* Right: Quick Demo Role Switcher + Notifications + Profile */}
+      {/* Right: Actions + Notifications + Profile */}
       <div className="flex items-center gap-2 sm:gap-3">
-        {/* Quick Demo Role Switcher Pill */}
-        <div className="hidden lg:flex items-center gap-1 bg-[#141817] p-1 rounded-xl border border-white/10">
-          <span className="text-[10px] uppercase font-bold text-white/40 px-2">Demo Role:</span>
-          <button
-            onClick={() => loginAsRole("admin")}
-            className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all cursor-pointer ${
-              role === "admin"
-                ? "bg-[#C9A45C] text-[#0B0D0C]"
-                : "text-white/60 hover:text-white"
-            }`}
-          >
-            Admin
-          </button>
-          <button
-            onClick={() => loginAsRole("driver")}
-            className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all cursor-pointer ${
-              role === "driver"
-                ? "bg-[#C9A45C] text-[#0B0D0C]"
-                : "text-white/60 hover:text-white"
-            }`}
-          >
-            Driver
-          </button>
-          <button
-            onClick={() => loginAsRole("customer")}
-            className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all cursor-pointer ${
-              role === "customer"
-                ? "bg-[#C9A45C] text-[#0B0D0C]"
-                : "text-white/60 hover:text-white"
-            }`}
-          >
-            Customer
-          </button>
-        </div>
-
         {/* Reset Demo Data Button */}
         <button
           onClick={() => {
@@ -158,10 +119,10 @@ export default function DashboardHeader({ onMenuClick, onSearchChange, searchVal
         <div className="flex items-center gap-2 pl-2 border-l border-white/10">
           <div className="text-right hidden sm:block">
             <span className="text-xs font-bold text-white block truncate max-w-[120px]">
-              {user?.name || "Executive User"}
+              {user?.name || "Admin Dispatch"}
             </span>
             <span className="text-[10px] text-[#C9A45C] uppercase font-mono block">
-              {role}
+              SYSTEM ADMIN
             </span>
           </div>
 

@@ -13,9 +13,11 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import ExperienceSection from "@/components/ExperienceSection";
 import Testimonials from "@/components/Testimonials";
 import CorporateSection from "@/components/CorporateSection";
+import ContactSection from "@/components/ContactSection";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import QuoteModal from "@/components/QuoteModal";
+import AIChatbot from "@/components/AIChatbot";
 
 export default function Home() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
@@ -67,7 +69,6 @@ export default function Home() {
       {/* 3-Step Process with Connected Pipe Line */}
       <HowItWorks onStartBooking={() => handleOpenQuote()} />
 
-    
       {/* Why Choose Us Feature Grid */}
       <WhyChooseUs />
 
@@ -80,11 +81,17 @@ export default function Home() {
       {/* Corporate Travel Section */}
       <CorporateSection onCorporateEnquiry={() => handleOpenQuote({ type: "corporate" })} />
 
+      {/* Contact Concierge Form Section */}
+      <ContactSection />
+
       {/* Final Dramatic CTA */}
       <FinalCTA onOpenQuote={() => handleOpenQuote()} />
 
       {/* Multi-Column Luxury Footer */}
       <Footer onOpenQuote={() => handleOpenQuote()} />
+
+      {/* Floating AI Chauffeur Assistant Chatbot */}
+      <AIChatbot onOpenQuote={(data) => handleOpenQuote(data)} />
 
       {/* Interactive Booking & Quote Calculation Modal */}
       <QuoteModal

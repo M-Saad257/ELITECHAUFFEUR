@@ -1,36 +1,37 @@
 "use client";
 
-import { Crown, Phone, Mail, MapPin, MessageSquare } from "lucide-react";
+import Link from "next/link";
+import { Crown, Phone, Mail, MapPin } from "lucide-react";
 
 export default function Footer({ onOpenQuote }) {
   return (
-    <footer id="contact" className="bg-[#0B0D0C] text-[#D8D3C8] pt-10 pb-8 border-t border-white/10 relative z-10">
+    <footer className="bg-[#0B0D0C] text-[#D8D3C8] pt-10 pb-8 border-t border-white/10 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-10 border-b border-white/10">
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-3">
-            <div className="flex items-center gap-2.5">
+            <Link href="/" className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-full border border-[#C9A45C]/50 bg-[#141817] flex items-center justify-center">
                 <Crown className="w-4 h-4 text-[#C9A45C]" />
               </div>
               <span className="font-serif text-xl font-bold tracking-widest text-[#F5F1E8]">
                 ELITE<span className="text-[#C9A45C] font-light ml-1">CHAUFFEUR</span>
               </span>
-            </div>
+            </Link>
 
             <p className="text-xs font-normal text-[#D8D3C8] leading-relaxed max-w-sm">
               The United Kingdom's premier executive chauffeur service. Delivering luxury, discretion, and guaranteed punctuality across London, UK airports, and national corporate roadshows.
             </p>
 
             <div className="pt-1 space-y-1.5 text-xs text-[#F5F1E8] font-medium">
-              <div className="flex items-center gap-2.5">
+              <a href="tel:+442079460912" className="flex items-center gap-2.5 hover:text-[#C9A45C]">
                 <Phone className="w-3.5 h-3.5 text-[#C9A45C]" />
                 <span>+44 (0)20 7946 0912</span>
-              </div>
-              <div className="flex items-center gap-2.5">
+              </a>
+              <a href="mailto:bookings@elitechauffeur.co.uk" className="flex items-center gap-2.5 hover:text-[#C9A45C]">
                 <Mail className="w-3.5 h-3.5 text-[#C9A45C]" />
                 <span>bookings@elitechauffeur.co.uk</span>
-              </div>
+              </a>
               <div className="flex items-center gap-2.5">
                 <MapPin className="w-3.5 h-3.5 text-[#C9A45C]" />
                 <span>Mayfair, London W1J 7NT, United Kingdom</span>
@@ -44,11 +45,11 @@ export default function Footer({ onOpenQuote }) {
               Company
             </h4>
             <ul className="space-y-1.5 text-xs text-[#D8D3C8]">
-              <li><a href="#about" className="hover:text-[#C9A45C] transition-colors">About Us</a></li>
-              <li><a href="#fleet" className="hover:text-[#C9A45C] transition-colors">Our Fleet</a></li>
-              <li><a href="#services" className="hover:text-[#C9A45C] transition-colors">Services</a></li>
-              <li><a href="#corporate" className="hover:text-[#C9A45C] transition-colors">Corporate Travel</a></li>
-              <li><a href="#airports" className="hover:text-[#C9A45C] transition-colors">Airport Hubs</a></li>
+              <li><Link href="/about" className="hover:text-[#C9A45C] transition-colors">About Us</Link></li>
+              <li><Link href="/fleet" className="hover:text-[#C9A45C] transition-colors">Our Fleet</Link></li>
+              <li><Link href="/services" className="hover:text-[#C9A45C] transition-colors">Services</Link></li>
+              <li><Link href="/corporate" className="hover:text-[#C9A45C] transition-colors">Corporate Travel</Link></li>
+              <li><Link href="/airports" className="hover:text-[#C9A45C] transition-colors">Airport Hubs</Link></li>
             </ul>
           </div>
 
@@ -58,11 +59,11 @@ export default function Footer({ onOpenQuote }) {
               Services
             </h4>
             <ul className="space-y-1.5 text-xs text-[#D8D3C8]">
-              <li><a href="#services" className="hover:text-[#C9A45C] transition-colors">Airport Transfers</a></li>
-              <li><a href="#services" className="hover:text-[#C9A45C] transition-colors">Executive Travel</a></li>
-              <li><a href="#services" className="hover:text-[#C9A45C] transition-colors">Corporate Accounts</a></li>
-              <li><a href="#services" className="hover:text-[#C9A45C] transition-colors">Long Distance Travel</a></li>
-              <li><a href="#services" className="hover:text-[#C9A45C] transition-colors">Hourly Chauffeur</a></li>
+              <li><Link href="/airports" className="hover:text-[#C9A45C] transition-colors">Airport Transfers</Link></li>
+              <li><Link href="/services" className="hover:text-[#C9A45C] transition-colors">Executive Travel</Link></li>
+              <li><Link href="/corporate" className="hover:text-[#C9A45C] transition-colors">Corporate Accounts</Link></li>
+              <li><Link href="/services" className="hover:text-[#C9A45C] transition-colors">Long Distance Travel</Link></li>
+              <li><Link href="/services" className="hover:text-[#C9A45C] transition-colors">Hourly Chauffeur</Link></li>
             </ul>
           </div>
 
@@ -72,9 +73,10 @@ export default function Footer({ onOpenQuote }) {
               Support & Book
             </h4>
             <ul className="space-y-1.5 text-xs text-[#D8D3C8]">
-              <li><a href="#contact" className="hover:text-[#C9A45C] transition-colors">Privacy Policy</a></li>
-              <li><a href="#contact" className="hover:text-[#C9A45C] transition-colors">Terms of Service</a></li>
-              <li><a href="#contact" className="hover:text-[#C9A45C] transition-colors">TfL Operator License</a></li>
+              <li><Link href="/contact" className="hover:text-[#C9A45C] transition-colors">Contact Concierge</Link></li>
+              <li><Link href="/contact" className="hover:text-[#C9A45C] transition-colors">Privacy & Terms</Link></li>
+              <li><Link href="/about" className="hover:text-[#C9A45C] transition-colors">TfL Operator License</Link></li>
+              <li><Link href="/login" className="hover:text-[#C9A45C] transition-colors font-semibold text-[#C9A45C]">Admin Console Login</Link></li>
             </ul>
 
             <div className="pt-1">
@@ -92,26 +94,12 @@ export default function Footer({ onOpenQuote }) {
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[#D8D3C8]/70">
           <p>© {new Date().getFullYear()} ELITE CHAUFFEUR UK LIMITED. TfL PCO License #009872. All rights reserved.</p>
           <div className="flex items-center gap-5">
-            <span className="hover:text-white transition-colors cursor-pointer">Privacy</span>
-            <span className="hover:text-white transition-colors cursor-pointer">Terms</span>
-            <span className="hover:text-white transition-colors cursor-pointer">TfL Compliance</span>
+            <Link href="/contact" className="hover:text-white transition-colors cursor-pointer">Privacy</Link>
+            <Link href="/contact" className="hover:text-white transition-colors cursor-pointer">Terms</Link>
+            <Link href="/about" className="hover:text-white transition-colors cursor-pointer">TfL Compliance</Link>
           </div>
         </div>
       </div>
-
-      {/* Floating WhatsApp Action Button */}
-      <a
-        href="https://wa.me/442079460912"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#20ba5a] text-white p-3 rounded-full shadow-2xl flex items-center justify-center group transition-all duration-300 transform hover:scale-110 cursor-pointer"
-        aria-label="Chat on WhatsApp"
-      >
-        <MessageSquare className="w-5 h-5" />
-        <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-500 ease-in-out text-[11px] font-bold uppercase tracking-wider pl-0 group-hover:pl-2">
-          WhatsApp Us
-        </span>
-      </a>
     </footer>
   );
 }

@@ -31,22 +31,22 @@ export default function HowItWorks({ onStartBooking }) {
   ];
 
   return (
-    <section className="min-h-[100vh] flex items-center justify-center py-8 sm:py-12 bg-[#0B0D0C] relative overflow-hidden border-t border-white/5">
+    <section className="min-h-[100vh] flex items-center justify-center py-8 sm:py-12 bg-[#F4F3EF] relative overflow-hidden border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-6 space-y-1.5">
-          <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full border border-[#C9A45C]/30 bg-[#141817]">
-            <Sparkles className="w-3 h-3 text-[#C9A45C]" />
-            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-[#C9A45C]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#C9A45C]/40 bg-white shadow-sm">
+            <Sparkles className="w-3 h-3 text-[#B8860B]" />
+            <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase text-[#B8860B]">
               HOW IT WORKS
             </span>
           </div>
 
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#F5F1E8]">
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#0F172A]">
             Simple 4-Step Process
           </h2>
 
-          <p className="text-xs sm:text-sm text-[#D8D3C8] font-normal">
+          <p className="text-xs sm:text-sm text-[#475569] font-normal">
             Your journey booked and managed in under two minutes.
           </p>
         </div>
@@ -61,7 +61,7 @@ export default function HowItWorks({ onStartBooking }) {
                 y1="50%"
                 x2="100%"
                 y2="50%"
-                stroke="rgba(201, 164, 92, 0.25)"
+                stroke="rgba(201, 164, 92, 0.35)"
                 strokeWidth="3"
               />
               <line
@@ -69,7 +69,7 @@ export default function HowItWorks({ onStartBooking }) {
                 y1="50%"
                 x2="100%"
                 y2="50%"
-                stroke="#C9A45C"
+                stroke="#B8860B"
                 strokeWidth="2.5"
                 className="animate-pipe"
               />
@@ -83,31 +83,31 @@ export default function HowItWorks({ onStartBooking }) {
               return (
                 <div
                   key={step.num}
-                  className="bg-[#141817] p-5 rounded-xl border border-[#C9A45C]/20 hover:border-[#C9A45C]/50 transition-all duration-300 flex flex-col justify-between group shadow-xl"
+                  className="bg-white p-5 rounded-xl border border-[#C9A45C]/30 hover:border-[#C9A45C] transition-all duration-300 flex flex-col justify-between group shadow-lg"
                 >
                   <div>
                     {/* Pipe Node Top Indicator */}
                     <div className="flex items-center justify-between mb-4">
-                      <div className="w-10 h-10 rounded-full bg-[#0B0D0C] border-2 border-[#C9A45C] flex items-center justify-center text-[#C9A45C] font-serif font-bold text-base shadow-[0_0_15px_rgba(201,164,92,0.2)] group-hover:scale-110 transition-transform">
+                      <div className="w-10 h-10 rounded-full bg-[#0F172A] border-2 border-[#C9A45C] flex items-center justify-center text-[#C9A45C] font-serif font-bold text-base shadow-md group-hover:scale-110 transition-transform">
                         {step.num}
                       </div>
-                      <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#C9A45C]">
+                      <div className="w-8 h-8 rounded-lg bg-[#FAF9F5] border border-[#C9A45C]/30 flex items-center justify-center text-[#B8860B]">
                         <Icon className="w-4 h-4" />
                       </div>
                     </div>
 
-                    <h3 className="font-serif text-base font-bold text-[#F5F1E8] mb-1 group-hover:text-[#C9A45C] transition-colors">
+                    <h3 className="font-serif text-base font-bold text-[#0F172A] mb-1 group-hover:text-[#B8860B] transition-colors">
                       {step.title}
                     </h3>
 
-                    <p className="text-xs text-[#D8D3C8] leading-relaxed font-normal">
+                    <p className="text-xs text-[#475569] leading-relaxed font-normal">
                       {step.desc}
                     </p>
                   </div>
 
-                  <div className="pt-3 mt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-[#D8D3C8]/70">
+                  <div className="pt-3 mt-3 border-t border-slate-200 flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-[#64748B]">
                     <span>Step {idx + 1} of 4</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#C9A45C]" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#B8860B]" />
                   </div>
                 </div>
               );
