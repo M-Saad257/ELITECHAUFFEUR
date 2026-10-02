@@ -1,26 +1,185 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-obsidian: #0B0D0C;
+    --bg-charcoal: #141817;
+    --bg-charcoal-card: #1A1F1E;
+    --text-ivory: #F5F1E8;
+    --text-muted: #D8D3C8;
+    --gold-champagne: #C9A45C;
+    --gold-antique: #A98B52;
+  }
+
+  body {
+    background-color: #0B0D0C;
+    color: #F5F1E8;
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button, a, select, input[type="button"], input[type="submit"] {
+    cursor: pointer !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.font-serif {
+  font-family: var(--font-serif), 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-sans {
+  font-family: var(--font-sans), 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Custom Champagne Gold Calendar & Time Picker Icons + Dark Scheme */
+input[type="date"],
+input[type="time"] {
+  color-scheme: dark;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(72%) sepia(35%) saturate(800%) hue-rotate(5deg) brightness(95%) contrast(90%);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover,
+input[type="time"]::-webkit-calendar-picker-indicator:hover {
+  filter: invert(85%) sepia(50%) saturate(1000%) hue-rotate(5deg) brightness(115%);
+  transform: scale(1.1);
+}
+
+/* Primary Champagne Gold Button - SOLID High Visibility */
+.btn-gold-primary {
+  background-color: #C9A45C;
+  color: #0B0D0C;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #C9A45C;
+  box-shadow: 0 4px 15px rgba(201, 164, 92, 0.3);
+}
+
+.btn-gold-primary:hover {
+  background-color: #d8b46b;
+  box-shadow: 0 8px 25px rgba(201, 164, 92, 0.45);
+  transform: translateY(-1px);
+}
+
+.quote {
+  background-color: #C9A45C;
+  color: #0B0D0C;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.4rem 1.5rem;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #C9A45C;
+  box-shadow: 0 4px 15px rgba(201, 164, 92, 0.3);
+}
+
+.quote:hover {
+  background-color: #d8b46b;
+  box-shadow: 0 8px 25px rgba(201, 164, 92, 0.45);
+  transform: translateY(-1px);
+}
+
+/* Secondary Gold Outlined Button */
+.btn-gold-secondary {
+  background-color: #141817;
+  border: 1px solid #C9A45C;
+  color: #F5F1E8;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-gold-secondary:hover {
+  background-color: rgba(201, 164, 92, 0.2) !important;
+  color: #C9A45C !important;
+}
+
+/* Card Styling */
+.card-charcoal {
+  background-color: #141817;
+  border: 1px solid rgba(201, 164, 92, 0.25);
+  border-radius: 1rem;
+  transition: all 0.25s ease;
+}
+
+.card-charcoal:hover {
+  border-color: rgba(201, 164, 92, 0.55);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0D0C;
+}
+::-webkit-scrollbar-thumb {
+  background: #141817;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A45C;
+}
+
+/* Infinite Marquee Scroll for Reviews */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbars for clean horizontal sliding */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
